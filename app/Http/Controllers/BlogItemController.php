@@ -14,6 +14,7 @@ class BlogItemController extends Controller
     public function index()
     {
         //
+        return "test";
     }
 
     /**
