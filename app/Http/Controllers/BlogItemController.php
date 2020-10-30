@@ -14,7 +14,7 @@ class BlogItemController extends Controller
     public function index()
     {
         //
-        return "test";
+        return view('blogs.index');
     }
 
     /**

@@ -10,7 +10,7 @@
     <nav>
         <ul>
             <li><a href="/blogs">Blog Lijst</a></li>
-            <li><a href="{{ route('groceries.create') }}">Toevoegen</a></li>
+            <li><a href="{{ route('blogs.create') }}">Toevoegen</a></li>
         </ul>
     </nav>
     <br>
