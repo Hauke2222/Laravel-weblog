@@ -30,6 +30,7 @@ class Groceries extends Migration
             $table->longText('page_content');
             $table->boolean('premium_content_status');
             $table->longText('comments');
+            $table->bigIncrements('user_id');
 
         });
 
