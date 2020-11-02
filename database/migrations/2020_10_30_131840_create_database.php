@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Groceries extends Migration
+class CreateDatabase extends Migration
 {
     /**
      * Run the migrations.
@@ -30,7 +30,7 @@ class Groceries extends Migration
             $table->longText('page_content');
             $table->boolean('premium_content_status');
             $table->longText('comments');
-            $table->bigIncrements('user_id');
+            $table->integer('user_id');
 
         });
 
