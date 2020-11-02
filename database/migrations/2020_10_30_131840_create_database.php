@@ -50,7 +50,7 @@ class Groceries extends Migration
             $table->integer('user_id')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('value_id')->references('id')->on('roles');
+            $table->foreign('role_id')->references('id')->on('roles');
 
         });
 
@@ -58,7 +58,7 @@ class Groceries extends Migration
             $table->integer('blog_item_id')->unsigned();
 
             $table->foreign('blog_item_id')->references('id')->on('blog_items');
-            $table->foreign('value_id')->references('id')->on('blog_items');
+            $table->foreign('category_id')->references('id')->on('blog_items');
 
         });
     }

@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     use HasFactory;
+
+    public function categories()
+    {
+        return $this->belongsToMany('App\Models\Category', 'blog_items_categories', 'blog_item_id', 'category_id');
+    }
+
     protected $table = 'blog_items';
     protected $fillable = [
         'title',
