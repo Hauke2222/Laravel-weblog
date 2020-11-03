@@ -35,15 +35,13 @@ class CreateDatabase extends Migration
         });
 
         Schema::create('roles', function (Blueprint $table) {
-            $table->bigIncrements('visitor');
-            $table->bigIncrements('writer');
-            $table->bigIncrements('admin');
+            $table->string('name');
+            $table->bigIncrements('id');
         });
 
         Schema::create('categories', function (Blueprint $table) {
-            $table->bigIncrements('Linux');
-            $table->bigIncrements('Barbell training');
-            $table->bigIncrements('Programming');
+            $table->string('name');
+            $table->bigIncrements('id');
         });
 
         Schema::create('user_roles', function (Blueprint $table) {
