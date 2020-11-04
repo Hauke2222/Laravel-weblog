@@ -45,7 +45,8 @@ class CreateDatabase extends Migration
         });
 
         Schema::create('user_roles', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('role_id')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('role_id')->references('id')->on('roles');
@@ -53,7 +54,8 @@ class CreateDatabase extends Migration
         });
 
         Schema::create('blog_items_categories', function (Blueprint $table) {
-            $table->integer('blog_item_id')->unsigned();
+            $table->bigInteger('blog_item_id')->unsigned();
+            $table->bigInteger('category_id')->unsigned();
 
             $table->foreign('blog_item_id')->references('id')->on('blog_items');
             $table->foreign('category_id')->references('id')->on('blog_items');
