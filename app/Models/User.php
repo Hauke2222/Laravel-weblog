@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
+    public $timestamps = false;
     use HasFactory;
 
     public function roles()
@@ -19,7 +20,7 @@ class User extends Model
         'first_name',
         'last_name',
         'subscription_status',
-        'email',
+        'e-mail',
         'password',
     ];
 }

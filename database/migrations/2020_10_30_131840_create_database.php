@@ -25,12 +25,13 @@ class CreateDatabase extends Migration
         Schema::create('blog_items', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('date');
+            $table->date('date');
             $table->string('author');
             $table->longText('page_content');
             $table->boolean('premium_content_status');
             $table->longText('comments');
-            $table->integer('user_id');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
 
         });
 
