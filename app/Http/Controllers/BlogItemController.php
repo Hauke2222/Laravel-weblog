@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Blog;
 
 class BlogItemController extends Controller
 {
@@ -14,7 +15,7 @@ class BlogItemController extends Controller
     public function index()
     {
         //
-        return view('blogs.index');
+        return view('blogs.index', ['blogItemsFromDatabase' => Blog::all()]);
     }
 
     /**
@@ -25,6 +26,7 @@ class BlogItemController extends Controller
     public function create()
     {
         //
+        return view('blogs.create');
     }
 
     /**
@@ -36,6 +38,13 @@ class BlogItemController extends Controller
     public function store(Request $request)
     {
         //
+        Blog::create(request()->validate([
+            'title' => ['required', 'min:2', 'max:255'],
+            'date' => ['required', 'date',],
+            'page_content' => ['required', 'gt:0'],
+            'premium_content_status' => ['required'],
+        ]));
+        return redirect()->route('blogs.index');
     }
 
     /**
@@ -55,9 +64,10 @@ class BlogItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Blog $blog)
     {
         //
+        return view('blogs.edit', ['blog' => $blog]);
     }
 
     /**

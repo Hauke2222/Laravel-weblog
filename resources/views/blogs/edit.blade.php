@@ -12,18 +12,21 @@
     </div>
 @endif
 
-<form action="{{ route('blogs.update', $grocery->id) }}" method="POST">
+<form action="{{ route('blogs.update', $blog->id) }}" method="POST">
     @csrf
     @method('PUT')
         <br>
-        <label for="name">Product:</label>
-        <input type="text" id="name" name="name" value="{{ $grocery->name }}" required>
+        <label for="date">Datum:</label>
+        <input type="date" id="name" name="name" value="{{ $blog->date }}" required>
 
-        <label for="amount">Aantal:</label>
-        <input type="number" id="amount" name="amount" value="{{ $grocery->amount }}" required>
+        <label for="title">Titel:</label>
+        <input type="text" id="title" name="title" value="{{ $blog->title }}" required>
 
-        <label for="price">Prijs:</label>
-        <input type="number" id="price" name="price" value="{{ $grocery->price }}" required>
+        <label for="price">Auteur:</label>
+        <input type="number" id="price" name="price" value="{{ $blog->author }}" required>
+
+        <label for="premium_check_box">Premium:</label>
+        <input type="number" id="price" name="premium_check_box" value="{{ $blog-> }}" required>
 
         <button type="submit" value="Submit">Submit</button>
 

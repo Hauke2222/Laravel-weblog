@@ -1,5 +1,11 @@
 @extends ('layouts.app')
 
+<!-- Include stylesheet -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
 @section ('create')
 
 @if ($errors->any())
@@ -14,17 +20,44 @@
 
 <form action="{{ route('blogs.store') }}" method="POST">
     @csrf
-        <br>
-        <label for="name">Product:</label>
-        <input type="text" id="name" name="name" required>
+    <label for="date">Datum:</label>
+    <input id="date" type="date" name="date">
 
-        <label for="amount">Aantal:</label>
-        <input type="number" id="amount" name="amount" required>
+    <label for="title">Titel:</label>
+    <input id="title" type="text" name="title">
 
-        <label for="price">Prijs:</label>
-        <input type="number" id="price" name="price" required>
+    <label for="title">Auteur:</label>
+    <input id="author" type="text" name="author">
 
-        <button type="submit" value="Submit">Submit</button>
+    <label for="premium">Premium</label>
+    <input type="checkbox" name="premium_check_box" value="premium">
+
+    <input name="page_content" type="hidden">
+    <!-- Create the editor container -->
+
+    <div id="editor"></div>
+    <br>
+    <script>
+        var quill = new Quill('#editor', {
+            theme: 'snow',
+            placeholder: 'Schrijf hier uw blog...',
+        });
+
+        var form1 = document.querySelector('form');
+        form1.onsubmit = function() {
+        // Populate hidden form on submit
+        var page_content = document.querySelector('input[name=page_content]');
+        about.value = JSON.stringify(quill.getContents());
+
+        console.log("Submitted", $(form1).serialize(), $(form1).serializeArray());
+
+        // No back end to actually submit to!
+        alert('Open the console to see the submit data!')
+        return false;
+        };
+    </script>
+
+    <button type="submit" value="Submit">Submit</button>
 
     </form>
 @endsection ('create')

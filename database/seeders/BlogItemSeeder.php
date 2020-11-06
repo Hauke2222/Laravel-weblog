@@ -23,7 +23,7 @@ class BlogItemSeeder extends Seeder
             'page_content' => Str::random(75),
             'premium_content_status' => false,
             'comments' => Str::random(20),
-            'user_id' => \App\Models\User::all()->random(),
+            'user_id' => \App\Models\User::all()->random()->id,
         ]);
         Blog::create([
             'title' => 'B blog title 2',
@@ -32,7 +32,7 @@ class BlogItemSeeder extends Seeder
             'page_content' => Str::random(75),
             'premium_content_status' => false,
             'comments' => Str::random(20),
-            'user_id' => \App\Models\User::all()->random(),
+            'user_id' => \App\Models\User::all()->random()->id,
         ]);
         Blog::create([
             'title' => 'C blog title 3',
@@ -41,7 +41,7 @@ class BlogItemSeeder extends Seeder
             'page_content' => Str::random(75),
             'premium_content_status' => false,
             'comments' => Str::random(20),
-            'user_id' => \App\Models\User::all()->random(),
+            'user_id' => \App\Models\User::all()->random()->id,
         ]);
     }
 }
