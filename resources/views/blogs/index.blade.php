@@ -5,7 +5,7 @@
     <tr>
         <th>Titel</th>
         <th>Datum</th>
-        <th>Schrijver</th>
+        <th>Auteur</th>
         <th>Bewerk</th>
         <th>Verwijder</th>
     </tr>

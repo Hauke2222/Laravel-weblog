@@ -18,7 +18,7 @@ class BlogItemSeeder extends Seeder
         //
         Blog::create([
             'title' => 'A blog title 1',
-            'date' => '2020-11-04',
+            'date' => '2020-08-04',
             'author' => Str::random(5),
             'page_content' => Str::random(75),
             'premium_content_status' => false,
@@ -36,7 +36,7 @@ class BlogItemSeeder extends Seeder
         ]);
         Blog::create([
             'title' => 'C blog title 3',
-            'date' => '2020-10-04',
+            'date' => '2020-12-04',
             'author' => Str::random(5),
             'page_content' => Str::random(75),
             'premium_content_status' => false,

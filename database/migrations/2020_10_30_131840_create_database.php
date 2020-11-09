@@ -28,9 +28,9 @@ class CreateDatabase extends Migration
             $table->date('date');
             $table->string('author');
             $table->longText('page_content');
-            $table->boolean('premium_content_status');
-            $table->longText('comments');
-            $table->bigInteger('user_id')->unsigned();
+            $table->boolean('premium_content_status')->default(false);
+            $table->longText('comments')->nullable();
+            $table->bigInteger('user_id')->unsigned()->default('1');
             $table->foreign('user_id')->references('id')->on('users');
 
         });
