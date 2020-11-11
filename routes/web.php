@@ -22,3 +22,7 @@ Route::redirect('/', '/blogs');
 Route::resource('writers', DashboardWriterController::class);
 
 Route::resource('admins', DashboardAdminController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
