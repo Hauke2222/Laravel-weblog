@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreBlogPost;
 use Illuminate\Http\Request;
 use App\Models\Blog;
 
-class BlogItemController extends Controller
+class DashboardWriterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,7 @@ class BlogItemController extends Controller
     public function index()
     {
         //
-
-        return view('blogs.index', ['blogItemsFromDatabase' => Blog::orderBy('date', 'desc')->get()]);
+        return view('writers.index', ['blogItemsFromDatabase' => Blog::all()]);
     }
 
     /**
@@ -28,7 +26,6 @@ class BlogItemController extends Controller
     public function create()
     {
         //
-        return view('blogs.create');
     }
 
     /**
@@ -37,16 +34,9 @@ class BlogItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBlogPost $request)
+    public function store(Request $request)
     {
         //
-        $validated = $request->validated();
-        $validated['premium_content_status'] = $request->has('premium_content_status');
-        Blog::create($validated);
-
-        //$premium_content_status = $request->boolean('premium_content_status');
-
-        return redirect()->route('blogs.index');
     }
 
     /**
@@ -55,10 +45,9 @@ class BlogItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show($id)
     {
         //
-        return view('blogs.show', ['blog' => $blog]);
     }
 
     /**
@@ -67,10 +56,9 @@ class BlogItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $blog)
+    public function edit($id)
     {
         //
-        return view('blogs.edit', ['blog' => $blog]);
     }
 
     /**
@@ -80,14 +68,9 @@ class BlogItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreBlogPost $request, Blog $blog)
+    public function update(Request $request, $id)
     {
         //
-        $validated = $request->validated();
-        $validated['premium_content_status'] = $request->has('premium_content_status');
-        $blog->update($validated);
-
-        return redirect()->route('blogs.index');
     }
 
     /**
@@ -96,10 +79,8 @@ class BlogItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Blog $blog)
+    public function destroy($id)
     {
         //
-        $blog->delete();
-        return redirect()->route('admins.index');
     }
 }

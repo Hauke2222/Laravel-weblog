@@ -26,6 +26,8 @@
     <label for="premium_content_status">Premium</label>
     <input type="checkbox" name="premium_content_status">
 
+    <br><br>
+
     <input id="page_content" type="hidden" name="page_content">
     <trix-editor input="page_content"></trix-editor>
     <input type="submit">

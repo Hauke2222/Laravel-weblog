@@ -12,6 +12,7 @@
         <ul>
             <li><a href="/blogs">Blog Lijst</a></li>
             <li><a href="{{ route('blogs.create') }}">Blog Schrijfen</a></li>
+            <li><a href="{{ route('admins.index') }}">Admin</a></li>
         </ul>
     </nav>
     <br>

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogItemController;
+use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\DashboardWriterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,7 @@ use App\Http\Controllers\BlogItemController;
 Route::resource('blogs', BlogItemController::class);
 
 Route::redirect('/', '/blogs');
+
+Route::resource('writers', DashboardWriterController::class);
+
+Route::resource('admins', DashboardAdminController::class);

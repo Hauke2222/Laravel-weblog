@@ -1,6 +1,6 @@
 @extends ('layouts.app')
 
-@section ('create')
+@section ('edit')
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -17,16 +17,20 @@
     @method('PUT')
         <br>
         <label for="date">Datum:</label>
-        <input type="date" id="name" name="name" value="{{ $blog->date }}" required>
+        <input type="date" id="date" name="date" value="{{ $blog->date }}">
 
         <label for="title">Titel:</label>
-        <input type="text" id="title" name="title" value="{{ $blog->title }}" required>
+        <input type="text" id="title" name="title" value="{{ $blog->title }}">
 
         <label for="author">Auteur:</label>
-        <input type="text" id="price" name="author" value="{{ $blog->author }}" required>
+        <input type="text" id="author" name="author" value="{{ $blog->author }}">
 
-        <label for="premium_check_box">Premium:</label>
-        <input type="checkbox" id="premium_check_box" name="premium_check_box" value="{{ $blog->premium_content_status }}" required>
+        <label for="premium_content_status">Premium:</label>
+        <input type="checkbox" id="premium_content_status" name="premium_content_status"
+        value="{{ $blog->premium_content_status }}"
+        @if ($blog->premium_content_status) checked @endif>
+
+        <br><br>
 
         <input id="page_content" value="{{ $blog->page_content }}" type="hidden" name="page_content">
         <trix-editor input="page_content"></trix-editor>
@@ -34,4 +38,4 @@
         <button type="submit" value="Submit">Submit</button>
 
     </form>
-@endsection ('create')
+@endsection ('edit')
