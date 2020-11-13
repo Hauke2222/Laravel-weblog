@@ -12,7 +12,8 @@
         <ul>
             <li><a href="/blogs">Blog Lijst</a></li>
             <li><a href="{{ route('blogs.create') }}">Blog Schrijfen</a></li>
-            <li><a href="{{ route('admins.index') }}">Admin</a></li>
+            <li><a href="{{ route('admins.index') }}">Admin Overzicht</a></li>
+            <li><a href="{{ route('writers.index') }}">Schrijvers Overzicht</a></li>
 
             @guest
             @if (Route::has('login'))
@@ -49,6 +50,7 @@
     @yield('body')
     @yield('create')
     @yield('edit')
+    @yield('content')
 
 </body>
 </html>

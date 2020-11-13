@@ -15,10 +15,9 @@ class CreateDatabase extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->boolean('subscription_status');
-            $table->string('e-mail')->unique();
+            $table->string('name');
+            $table->boolean('subscription_status')->default(false);
+            $table->string('email')->unique();
             $table->string('password');
         });
 

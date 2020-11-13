@@ -17,12 +17,10 @@ class UserSeeder extends Seeder
     {
         //
         User::create([
-            'first_name' => ('test user'),
-            'last_name' => ('last name'),
+            'name' => ('test user'),
             'subscription_status' => false,
-            'e-mail' => Str::random(7).'@gmail.com',
-            'password' => Str::random(6),
-
+            'email' => Str::random(7).'@gmail.com',
+            'password' => Str::random(8),
         ]);
     }
 }
