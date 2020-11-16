@@ -17,6 +17,11 @@ class Blog extends Model
         return $this->belongsToMany('App\Models\Category', 'blog_items_categories', 'blog_item_id', 'category_id');
     }
 
+    public function comments()
+    {
+        return $this->belongsTo('App\Models\Comment');
+    }
+
     protected $table = 'blog_items';
     protected $fillable = [
         'title',
@@ -24,6 +29,5 @@ class Blog extends Model
         'author',
         'page_content',
         'premium_content_status',
-        'comments',
     ];
 }

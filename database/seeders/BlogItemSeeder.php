@@ -22,7 +22,6 @@ class BlogItemSeeder extends Seeder
             'author' => Str::random(5),
             'page_content' => Str::random(75),
             'premium_content_status' => false,
-            'comments' => Str::random(20),
             'user_id' => \App\Models\User::all()->random()->id,
         ]);
         Blog::create([
@@ -31,7 +30,6 @@ class BlogItemSeeder extends Seeder
             'author' => Str::random(5),
             'page_content' => Str::random(75),
             'premium_content_status' => false,
-            'comments' => Str::random(20),
             'user_id' => \App\Models\User::all()->random()->id,
         ]);
         Blog::create([
@@ -40,7 +38,6 @@ class BlogItemSeeder extends Seeder
             'author' => Str::random(5),
             'page_content' => Str::random(75),
             'premium_content_status' => false,
-            'comments' => Str::random(20),
             'user_id' => \App\Models\User::all()->random()->id,
         ]);
     }

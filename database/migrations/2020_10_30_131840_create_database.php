@@ -28,7 +28,6 @@ class CreateDatabase extends Migration
             $table->string('author');
             $table->longText('page_content');
             $table->boolean('premium_content_status')->default(false);
-            $table->longText('comments')->nullable();
             $table->bigInteger('user_id')->unsigned()->default('1');
             $table->foreign('user_id')->references('id')->on('users');
 
@@ -61,6 +60,13 @@ class CreateDatabase extends Migration
             $table->foreign('category_id')->references('id')->on('blog_items');
 
         });
+
+        Schema::create('comments', function (Blueprint $table) {
+            $table->bigInteger('blog_item_id')->unsigned();
+            $table->foreign('blog_item_id')->references('id')->on('blog_items');
+            $table->longText('comment');
+            $table->bigIncrements('id');
+        });
     }
 
     /**
@@ -76,5 +82,7 @@ class CreateDatabase extends Migration
         Schema::dropIfExists('categories');
         Schema::dropIfExists('user_roles');
         Schema::dropIfExists('blog_items_categories');
+        Schema::dropIfExists('comments');
+        Schema::dropIfExists('blog_items_comments');
     }
 }

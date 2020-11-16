@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreComment;
 use App\Models\Blog;
 
-class DashboardWriterController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,6 @@ class DashboardWriterController extends Controller
     public function index()
     {
         //
-        $user = Auth::user();
-        $user = $user->name;
-        return view('blogs.index', ['blogItemsFromDatabase' => Blog::where('author', $user)->orderBy('date', 'desc')->get()]);
     }
 
     /**
@@ -37,9 +34,14 @@ class DashboardWriterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreComment $request)
     {
         //
+        $validated = $request->validated();
+        //dd($blog);
+        dd($validated);
+        //$blog->update($validated);
+        Comment::create($validated);
     }
 
     /**
