@@ -17,6 +17,11 @@
 <h4>Author: {{ $blog->author }}</h4>
 <p>{{ $blog->page_content }}</p>
 <br>
+<h4>Commentaar:</h4>
+<?php foreach($blog->comments as $comment) { ?>
+<p><?php echo $comment->comment; ?></p>
+<br>
+<?php } ?>
 <h4>Scrijf hier uw commentaar:</h4>
 <form action="{{ route('comment.store') }}" method="POST">
     @csrf

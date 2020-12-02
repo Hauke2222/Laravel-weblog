@@ -12,6 +12,11 @@ class Comment extends Model
     use HasFactory;
     use HasTrixRichText;
 
+    public function blog()
+    {
+        return $this->belongsTo('App\Models\Blog', 'blog_item_id');
+    }
+
     protected $table = 'comments';
     protected $fillable = [
         'comment',

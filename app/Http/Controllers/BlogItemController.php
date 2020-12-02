@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBlogPost;
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\Comment;
 
 class BlogItemController extends Controller
 {

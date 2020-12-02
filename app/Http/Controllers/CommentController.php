@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreComment;
 use App\Models\Blog;
+use App\Models\Comment;
 
 class CommentController extends Controller
 {
@@ -39,7 +40,7 @@ class CommentController extends Controller
         //
         $validated = $request->validated();
         //dd($blog);
-        dd($validated);
+        //dd($validated);
         //$blog->update($validated);
         Comment::create($validated);
     }
