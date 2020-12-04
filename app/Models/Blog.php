@@ -19,7 +19,7 @@ class Blog extends Model
 
     public function comments()
     {
-        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany('App\Models\Comment', 'blog_item_id');
     }
 
     protected $table = 'blog_items';

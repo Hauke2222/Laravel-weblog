@@ -14,7 +14,7 @@ class Comment extends Model
 
     public function blog()
     {
-        return $this->belongsTo('App\Models\Blog', 'blog_item_id');
+        return $this->belongsTo('App\Models\Blog');
     }
 
     protected $table = 'comments';

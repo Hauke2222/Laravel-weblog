@@ -43,6 +43,7 @@ class CommentController extends Controller
         //dd($validated);
         //$blog->update($validated);
         Comment::create($validated);
+        return redirect()->route('blogs.index');
     }
 
     /**

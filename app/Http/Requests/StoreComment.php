@@ -26,7 +26,7 @@ class StoreComment extends FormRequest
         return [
             //
             'comment' => ['required',],
-            'blog_id' => ['required'],
+            'blog_item_id' => ['required'],
         ];
     }
 }

@@ -25,7 +25,7 @@
 <h4>Scrijf hier uw commentaar:</h4>
 <form action="{{ route('comment.store') }}" method="POST">
     @csrf
-    <input type="hidden" name="blog_id" value="{{$blog->id}}">
+    <input type="hidden" name="blog_item_id" value="{{$blog->id}}">
     <input id="comment" type="hidden" name="comment">
     <trix-editor input="comment"></trix-editor>
     <input type="submit">
