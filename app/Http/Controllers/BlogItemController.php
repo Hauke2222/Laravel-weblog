@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBlogPost;
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\Comment;
 
 class BlogItemController extends Controller
@@ -29,7 +30,7 @@ class BlogItemController extends Controller
     public function create()
     {
         //
-        return view('blogs.create');
+        return view('blogs.create', ['blogCategoriesFromDatabase' => Category::all()]);
     }
 
     /**
@@ -41,10 +42,11 @@ class BlogItemController extends Controller
     public function store(StoreBlogPost $request)
     {
         //
+        dd($request->categories);
         $validated = $request->validated();
         $validated['premium_content_status'] = $request->has('premium_content_status');
-        Blog::create($validated);
-
+        Blog::create($validated)->comments()->sync([]);
+        //$blog->comments()->sync([1, 2, 3]);
         //$premium_content_status = $request->boolean('premium_content_status');
 
         return redirect()->route('blogs.index');

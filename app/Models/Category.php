@@ -9,8 +9,15 @@ class Category extends Model
 {
     public $timestamps = false;
     use HasFactory;
+
+    public function blog()
+    {
+        return $this->belongsTo('App\Models\Blog');
+    }
+
     protected $table = 'categories';
     protected $fillable = [
-        'category_name',
+        'name',
+        'blog_item_id',
     ];
 }

@@ -18,7 +18,7 @@ class DashboardWriterController extends Controller
         //
         $user = Auth::user();
         $user = $user->name;
-        return view('blogs.index', ['blogItemsFromDatabase' => Blog::where('author', $user)->orderBy('date', 'desc')->get()]);
+        return view('writers.index', ['blogItemsFromDatabase' => Blog::where('author', $user)->orderBy('date', 'desc')->get()]);
     }
 
     /**

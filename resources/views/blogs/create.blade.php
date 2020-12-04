@@ -26,6 +26,13 @@
     <label for="premium_content_status">Premium</label>
     <input type="checkbox" name="premium_content_status">
 
+    <label for="categories">Kies een categorie:</label>
+    <select name="categories" id="categories" multiple>
+        <?php foreach($blogCategoriesFromDatabase as $category) { ?>
+        <option value="{{ $category->id }}">{{ $category->name }}</option>
+        <?php } ?>
+    </select>
+
     <br><br>
 
     <input id="page_content" type="hidden" name="page_content">
