@@ -30,6 +30,18 @@
         value="{{ $blog->premium_content_status }}"
         @if ($blog->premium_content_status) checked @endif>
 
+        <label for="categories">Kies een categorie:</label>
+        <select name="categories[]" id="categories" multiple>
+            @foreach($blogCategoriesFromDatabase as $category)
+            <!--<option value="{{ $category->id }}">{{ $category->name }} </option> -->
+            @if (Request::old('categories[]') == $category->id)
+                <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+            @else
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endif
+            @endforeach
+        </select>
+
         <br><br>
 
         <input id="page_content" value="{{ $blog->page_content }}" type="hidden" name="page_content">

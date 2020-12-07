@@ -27,7 +27,7 @@
     <input type="checkbox" name="premium_content_status">
 
     <label for="categories">Kies een categorie:</label>
-    <select name="categories" id="categories" multiple>
+    <select name="categories[]" id="categories" multiple>
         <?php foreach($blogCategoriesFromDatabase as $category) { ?>
         <option value="{{ $category->id }}">{{ $category->name }}</option>
         <?php } ?>

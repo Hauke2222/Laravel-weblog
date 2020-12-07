@@ -12,7 +12,7 @@ class Category extends Model
 
     public function blog()
     {
-        return $this->belongsTo('App\Models\Blog');
+        return $this->belongsToMany('App\Models\Blog', 'blog_items_categories', 'blog_item_id', 'category_id');
     }
 
     protected $table = 'categories';

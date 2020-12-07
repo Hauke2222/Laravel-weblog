@@ -56,8 +56,6 @@ class CreateDatabase extends Migration
             $table->bigInteger('blog_item_id')->unsigned();
             $table->bigInteger('category_id')->unsigned();
 
-            $table->foreign('blog_item_id')->references('id')->on('blog_items');
-            $table->foreign('category_id')->references('id')->on('blog_items');
 
         });
 

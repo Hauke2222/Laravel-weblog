@@ -42,10 +42,10 @@ class BlogItemController extends Controller
     public function store(StoreBlogPost $request)
     {
         //
-        dd($request->categories);
+        //dd($request->categories);
         $validated = $request->validated();
         $validated['premium_content_status'] = $request->has('premium_content_status');
-        Blog::create($validated)->comments()->sync([]);
+        Blog::create($validated)->categories()->sync($request->categories);
         //$blog->comments()->sync([1, 2, 3]);
         //$premium_content_status = $request->boolean('premium_content_status');
 
@@ -73,7 +73,7 @@ class BlogItemController extends Controller
     public function edit(Blog $blog)
     {
         //
-        return view('blogs.edit', ['blog' => $blog]);
+        return view('blogs.edit', ['blog' => $blog, 'blogCategoriesFromDatabase' => Category::all()]);
     }
 
     /**
@@ -89,6 +89,7 @@ class BlogItemController extends Controller
         $validated = $request->validated();
         $validated['premium_content_status'] = $request->has('premium_content_status');
         $blog->update($validated);
+        $blog->categories()->sync($request->categories);
 
         return redirect()->route('blogs.index');
     }
