@@ -34,11 +34,7 @@
         <select name="categories[]" id="categories" multiple>
             @foreach($blogCategoriesFromDatabase as $category)
             <!--<option value="{{ $category->id }}">{{ $category->name }} </option> -->
-            @if (Request::old('categories[]') == $category->id)
-                <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-            @else
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
-            @endif
+            <option value="{{ $category->id }}"{{ ($category->name == $category) ? ' selected' : '' }}>{{ $category->name }}</option>
             @endforeach
         </select>
 
