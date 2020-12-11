@@ -15,7 +15,7 @@
         <td><a href="{{ route('blogs.show', $blog->id) }}"><?php echo $blog->title; ?></a></td>
         <td><?php echo $blog->date; ?></td>
         <td><?php echo $blog->author; ?></td>
-        <td><?php echo $blog->categories; ?></td>
+        <td><?php foreach( $blog->categories as $category){echo $category->name . ', ';} ?></td>
     </tr>
     <?php } ?>
 </table>

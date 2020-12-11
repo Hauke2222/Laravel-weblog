@@ -1,3 +1,4 @@
+
 @extends ('layouts.app')
 
 @section ('edit')
@@ -33,11 +34,18 @@
         <label for="categories">Kies een categorie:</label>
         <select name="categories[]" id="categories" multiple>
             @foreach($blogCategoriesFromDatabase as $category)
+            @foreach ($categories as $selectedCategory)
             <!--<option value="{{ $category->id }}">{{ $category->name }} </option> -->
-            <option value="{{ $category->id }}"{{ ($category->name == $category) ? ' selected' : '' }}>{{ $category->name }}</option>
+            if ($category->name == $selectedCategory->name){
+            <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+            } else{
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+            }
             @endforeach
-        </select>
+            @endforeach
 
+        </select>
+        <?php foreach( $categories as $selectedCategory){echo $selectedCategory->name . ', ';} ?>
         <br><br>
 
         <input id="page_content" value="{{ $blog->page_content }}" type="hidden" name="page_content">

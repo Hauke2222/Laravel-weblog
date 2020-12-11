@@ -18,8 +18,9 @@ class BlogItemController extends Controller
     public function index()
     {
         //
-
+        //dd(Blog::orderBy('date', 'desc')->with('categories')->get());
         return view('blogs.index', ['blogItemsFromDatabase' => Blog::orderBy('date', 'desc')->get()]);
+
     }
 
     /**
@@ -73,7 +74,8 @@ class BlogItemController extends Controller
     public function edit(Blog $blog)
     {
         //
-        return view('blogs.edit', ['blog' => $blog, 'blogCategoriesFromDatabase' => Category::all()]);
+        //dd($blog->categories);
+        return view('blogs.edit', ['blog' => $blog, 'blogCategoriesFromDatabase' => Category::all(), 'categories' => $blog->categories]);
     }
 
     /**

@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogItemController;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardWriterController;
 use App\Http\Controllers\CommentController;
+use App\Mail\WeeklyBlogDigest;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,10 @@ Route::resource('writers', DashboardWriterController::class);
 Route::resource('admins', DashboardAdminController::class);
 
 Route::resource('comment', CommentController::class);
+
+Route::get('/email', function(){
+    return new WeeklyBlogDigest();
+});
 
 Auth::routes();
 
