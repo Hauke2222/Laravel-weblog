@@ -75,7 +75,7 @@ class BlogItemController extends Controller
     {
         //
         //dd($blog->categories);
-        return view('blogs.edit', ['blog' => $blog, 'blogCategoriesFromDatabase' => Category::all(), 'categories' => $blog->categories]);
+        return view('blogs.edit', ['blog' => $blog, 'blogCategoriesFromDatabase' => Category::all(), 'selectedCategories' => $blog->categories]);
     }
 
     /**

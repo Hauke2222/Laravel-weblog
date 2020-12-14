@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardWriterController;
 use App\Http\Controllers\CommentController;
 use App\Mail\WeeklyBlogDigest;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,14 @@ Route::resource('comment', CommentController::class);
 
 Route::get('/email', function(){
     return new WeeklyBlogDigest();
+});
+
+Route::get('/send-mail', function () {
+
+    Mail::to('newuser@example.com')->send(new WeeklyBlogDigest());
+
+    return 'A message has been sent to Mailtrap';
+
 });
 
 Auth::routes();

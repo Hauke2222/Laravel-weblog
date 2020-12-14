@@ -1,10 +1,10 @@
 @component('mail::message')
-# Introduction
+# Beste lezer,
 
-The body of your message.
+Klik op de knop hieronder om de nieuwe blog berichten te zien.
 
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::button', ['url' => 'http://127.0.0.1:8000/blogs'])
+Bekijk de nieuwe blog berichten
 @endcomponent
 
 Thanks,<br>
