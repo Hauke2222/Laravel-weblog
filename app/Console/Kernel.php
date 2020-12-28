@@ -26,7 +26,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('sendWeeklyDigest')->everyMinute();
+        //run php artisan schedule:work to start the scheduler
+        $schedule->command('mail:sendWeeklyDigest')->weekly();
     }
 
     /**

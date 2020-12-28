@@ -50,4 +50,6 @@
         <button type="submit" value="Submit">Submit</button>
 
     </form>
+    <script src="{{ asset('js/trix.js') }}"></script>
+    <script src="{{ asset('js/attachments.js') }}"></script>
 @endsection ('edit')

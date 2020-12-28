@@ -29,6 +29,7 @@ class StoreBlogPost extends FormRequest
             'date' => ['required', 'date'],
             'author' => ['required'],
             'page_content' => ['required'],
+
         ];
     }
 }
