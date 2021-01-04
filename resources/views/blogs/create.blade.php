@@ -12,7 +12,7 @@
     </div>
 @endif
 
-<form action="{{ route('blogs.store') }}" method="POST">
+<form action="{{ route('blogs.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <label for="date">Datum:</label>
     <input id="date" type="date" name="date">
@@ -32,6 +32,9 @@
         <option value="{{ $category->id }}">{{ $category->name }}</option>
         <?php } ?>
     </select>
+
+    <label for="image"></label>
+    <input type="file" name="image">
 
     <br><br>
 

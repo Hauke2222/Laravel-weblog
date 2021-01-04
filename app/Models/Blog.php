@@ -29,6 +29,6 @@ class Blog extends Model
         'author',
         'page_content',
         'premium_content_status',
-        'photo',
+        'image',
     ];
 }

@@ -30,7 +30,7 @@ class CreateDatabase extends Migration
             $table->boolean('premium_content_status')->default(false);
             $table->bigInteger('user_id')->unsigned()->default('1');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->binary('photo');
+            $table->string('image')->nullable();
 
         });
 
