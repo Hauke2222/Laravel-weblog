@@ -15,7 +15,7 @@
 <h1>{{ $blog->title }}</h1>
 <h2>{{ $blog->date }}</h2>
 <h4>Author: {{ $blog->author }}</h4>
-<img src="{{asset($blog->image)}}">
+<img src="{{Storage::url($blog->image)}}" class="responsive-img">
 <p>{{ $blog->page_content }}</p>
 <br>
 <h4>Commentaar:</h4>

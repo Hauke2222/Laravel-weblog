@@ -43,14 +43,10 @@ class BlogItemController extends Controller
     public function store(StoreBlogPost $request)
     {
         //
-        //dd($request->file('image'));
-        //dd($request->categories);
         $validated = $request->validated();
         $validated['premium_content_status'] = $request->has('premium_content_status');
-        $request->file('image')->store('images');
+        $validated['image'] = $request->file('image')->store('public/images');
         Blog::create($validated)->categories()->sync($request->categories);
-        //$blog->comments()->sync([1, 2, 3]);
-        //$premium_content_status = $request->boolean('premium_content_status');
 
         return redirect()->route('blogs.index');
     }

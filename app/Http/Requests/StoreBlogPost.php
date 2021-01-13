@@ -29,7 +29,7 @@ class StoreBlogPost extends FormRequest
             'date' => ['required', 'date'],
             'author' => ['required'],
             'page_content' => ['required'],
-            'image' => ['$destinationPath.$fileName'],
+            'image' => ['mimes:jpeg,bmp,png|max:2000'],
 
         ];
     }

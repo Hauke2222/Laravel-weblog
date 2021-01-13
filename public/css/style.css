@@ -1,42 +1,47 @@
-  #editor {
+#editor {
     width: 50%;
     height: 50%;
-  }
-  .ql-toolbar {
-      width: 50%;
-  }
-  .ql-snow {
+}
+.ql-toolbar {
+    width: 50%;
+}
+.ql-snow {
     width: 50%;
 }
 
-
-  ul {
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     border: 1px solid #e7e7e7;
     background-color: #f3f3f3;
-  }
+}
 
-  li {
+li {
     float: left;
-  }
+}
 
-  li a {
+li a {
     display: block;
     color: #666;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-  }
+}
 
-  table {
+table {
     border: 1px solid black;
     text-align: center;
-  }
+}
 
-  th, td {
+th,
+td {
     border: 1px solid lightgray;
     text-align: center;
-  }
+}
+
+.responsive-img {
+    width: 70%;
+    height: auto;
+}
