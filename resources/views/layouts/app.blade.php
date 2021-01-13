@@ -14,6 +14,8 @@
             <li><a href="{{ route('blogs.create') }}">Blog Schrijfen</a></li>
             <li><a href="{{ route('admins.index') }}">Admin Overzicht</a></li>
             <li><a href="{{ route('writers.index') }}">Schrijvers Overzicht</a></li>
+            <li><a href="{{ route('payments.index') }}">Abonnementen</a></li>
+
 
             @guest
             @if (Route::has('login'))
@@ -51,6 +53,7 @@
     @yield('create')
     @yield('edit')
     @yield('content')
+    @yield('payments')
     <script>
         function searchInRows() {
         let input = document.getElementById("myInput");

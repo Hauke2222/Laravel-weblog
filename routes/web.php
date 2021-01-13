@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogItemController;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardWriterController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PaymentController;
 use App\Mail\WeeklyBlogDigest;
 use Illuminate\Support\Facades\Mail;
 
@@ -27,6 +28,8 @@ Route::resource('writers', DashboardWriterController::class);
 Route::resource('admins', DashboardAdminController::class);
 
 Route::resource('comment', CommentController::class);
+
+Route::resource('payments', PaymentController::class);
 
 Route::get('/email', function(){
     return new WeeklyBlogDigest();
