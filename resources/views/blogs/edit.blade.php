@@ -46,10 +46,8 @@
 
         <input id="page_content" value="{{ $blog->page_content }}" type="hidden" name="page_content">
         <trix-editor input="page_content"></trix-editor>
-
-        <button type="submit" value="Submit">Submit</button>
+        <br>
+        <button type="submit" value="Submit" class="button">Submit</button>
 
     </form>
-    <script src="{{ asset('js/trix.js') }}"></script>
-    <script src="{{ asset('js/attachments.js') }}"></script>
 @endsection ('edit')

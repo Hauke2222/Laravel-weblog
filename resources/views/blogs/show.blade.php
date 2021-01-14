@@ -29,7 +29,8 @@
     <input type="hidden" name="blog_item_id" value="{{$blog->id}}">
     <input id="comment" type="hidden" name="comment">
     <trix-editor input="comment"></trix-editor>
-    <input type="submit">
+    <br>
+    <input type="submit" class="button">
 
 </form>
 

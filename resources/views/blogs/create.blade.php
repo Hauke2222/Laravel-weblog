@@ -40,10 +40,9 @@
 
     <input id="page_content" type="hidden" name="page_content">
     <trix-editor input="page_content"></trix-editor>
-    <input type="submit">
+    <br>
+    <input type="submit" class="button">
 
 
     </form>
-    <script src="{{ asset('js/trix.js') }}"></script>
-    <script src="{{ asset('js/attachments.js') }}"></script>
 @endsection ('create')
