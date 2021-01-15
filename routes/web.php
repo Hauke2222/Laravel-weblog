@@ -21,15 +21,19 @@ use Illuminate\Support\Facades\Mail;
 */
 Route::resource('blogs', BlogItemController::class);
 
+Route::resource('blogs', BlogItemController::class)->only([
+    'create', 'store', 'update', 'destroy'
+    ])->middleware('auth');
+
 Route::redirect('/', '/blogs');
 
-Route::resource('writers', DashboardWriterController::class);
+Route::resource('writers', DashboardWriterController::class)->middleware('auth');
 
-Route::resource('admins', DashboardAdminController::class);
+Route::resource('admins', DashboardAdminController::class)->middleware('auth');
 
-Route::resource('comment', CommentController::class);
+Route::resource('comment', CommentController::class)->middleware('auth');
 
-Route::resource('payments', PaymentController::class);
+Route::resource('payments', PaymentController::class)->middleware('auth');
 
 Route::get('/email', function(){
     return new WeeklyBlogDigest();

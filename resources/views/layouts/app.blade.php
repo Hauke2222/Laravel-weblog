@@ -11,10 +11,12 @@
     <nav>
         <ul>
             <li><a href="/blogs">Blog Lijst</a></li>
+            @auth
             <li><a href="{{ route('blogs.create') }}">Blog Schrijfen</a></li>
             <li><a href="{{ route('admins.index') }}">Admin Overzicht</a></li>
             <li><a href="{{ route('writers.index') }}">Schrijvers Overzicht</a></li>
-            <li><a href="{{ route('payments.index') }}">Abonnementen</a></li>
+            @endauth
+            <li><a href="{{ route('payments.index') }}">Abonnement</a></li>
 
 
             @guest
@@ -30,7 +32,7 @@
                 </li>
             @endif
             @else
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown float-right">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }}
                     </a>
