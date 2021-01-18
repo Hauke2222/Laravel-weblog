@@ -30,11 +30,12 @@
 <?php foreach($blogItemsFromDatabase as $blog) { ?>
 <div class="center">
     <div class="card">
-        <div class="blog-card-img">Test</div>
-        <div class="blog-card-title"></div>
-        <div class="blog-card-category"></div>
-        <div class="blog-card-author-date"></div>
-
+        <a href="{{ route('blogs.show', $blog->id) }}">
+            <div class="blog-card-img"><img src="{{Storage::url($blog->image)}}" class="responsive-img"></div>
+            <div class="blog-card-title"><?php echo $blog->title; ?></div>
+            <div class="blog-card-category"><?php foreach( $blog->categories as $category){echo $category->name . ', ';} ?></div>
+            <div class="blog-card-author-date"><?php echo $blog->author . ' ' . $blog->date ; ?></div>
+        </a>
     </div>
 </div>
 <?php } ?>
