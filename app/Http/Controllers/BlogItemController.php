@@ -88,6 +88,7 @@ class BlogItemController extends Controller
         //
         $validated = $request->validated();
         $validated['premium_content_status'] = $request->has('premium_content_status');
+        $validated['image'] = $request->file('image')->store('public/images');
         $blog->update($validated);
         $blog->categories()->sync($request->categories);
 

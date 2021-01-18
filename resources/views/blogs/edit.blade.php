@@ -13,7 +13,7 @@
     </div>
 @endif
 
-<form action="{{ route('blogs.update', $blog->id) }}" method="POST">
+<form action="{{ route('blogs.update', $blog->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
         <br>
@@ -42,6 +42,10 @@
 
         </select>
         <?php foreach( $selectedCategories as $selectedCategory){echo $selectedCategory->name . ', ';} ?>
+
+        <label for="image"></label>
+        <input type="file" name="image">
+
         <br><br>
 
         <input id="page_content" value="{{ $blog->page_content }}" type="hidden" name="page_content">
