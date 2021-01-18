@@ -8,36 +8,18 @@
 </div>
 
 <br><br>
-
-<div class="center">
-    <table id="myTable" style="width:70%">
-        <tr>
-            <th>Titel</th>
-            <th>Datum</th>
-            <th>Auteur</th>
-            <th>Categorieën</th>
-        </tr>
-        <?php foreach($blogItemsFromDatabase as $blog) { ?>
-        <tr>
-            <td><a href="{{ route('blogs.show', $blog->id) }}"><?php echo $blog->title; ?></a></td>
-            <td><?php echo $blog->date; ?></td>
-            <td><?php echo $blog->author; ?></td>
-            <td><?php foreach( $blog->categories as $category){echo $category->name . ', ';} ?></td>
-        </tr>
-        <?php } ?>
-    </table>
-</div>
 <?php foreach($blogItemsFromDatabase as $blog) { ?>
 <div class="center">
     <div class="card">
         <a href="{{ route('blogs.show', $blog->id) }}">
-            <div class="blog-card-img"><img src="{{Storage::url($blog->image)}}" class="responsive-img"></div>
+            <div class="blog-card-img"><img src="{{Storage::url($blog->image)}}" class="blog-card-img"></div>
             <div class="blog-card-title"><?php echo $blog->title; ?></div>
-            <div class="blog-card-category"><?php foreach( $blog->categories as $category){echo $category->name . ', ';} ?></div>
             <div class="blog-card-author-date"><?php echo $blog->author . ' ' . $blog->date ; ?></div>
+            <div class="blog-card-category">Categorie:<?php foreach( $blog->categories as $category){echo ' ' . $category->name . ', ';} ?></div>
         </a>
     </div>
 </div>
+<br>
 <?php } ?>
 
 
