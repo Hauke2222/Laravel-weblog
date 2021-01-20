@@ -23,7 +23,7 @@ class BlogItemSeeder extends Seeder
             'page_content' => Str::random(75),
             'premium_content_status' => false,
             'user_id' => \App\Models\User::all()->random()->id,
-            'image' => 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.M52Pcr8OmGtStOzd3N41bQHaE7%26pid%3DApi&f=1',
+            'image' => 'database\seeders\seedimages\winter-in-finland.jpg',
         ]);
         Blog::create([
             'title' => 'Blog title B',
@@ -32,7 +32,7 @@ class BlogItemSeeder extends Seeder
             'page_content' => Str::random(75),
             'premium_content_status' => false,
             'user_id' => \App\Models\User::all()->random()->id,
-            'image' => 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.M52Pcr8OmGtStOzd3N41bQHaE7%26pid%3DApi&f=1',
+            'image' => 'database\seeders\seedimages\Finnish-Lapland.jpg',
         ]);
         Blog::create([
             'title' => 'Blog title C',

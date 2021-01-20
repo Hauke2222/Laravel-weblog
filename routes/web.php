@@ -25,6 +25,10 @@ Route::resource('blogs', BlogItemController::class)->only([
     'create', 'store', 'update', 'destroy'
     ])->middleware('auth');
 
+Route::resource('blogs', BlogItemController::class)->only([
+    'store', 'update',
+    ])->middleware('throttle:store_blog');
+
 Route::redirect('/', '/blogs');
 
 Route::resource('writers', DashboardWriterController::class)->middleware('auth');
