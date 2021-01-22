@@ -9,10 +9,11 @@
 
 <br><br>
 <ul id="cardList">
+<br>
 <?php foreach($blogItemsFromDatabase as $blog) { ?>
 <div class="center">
     <div class="card">
-        <li>
+        <li class="card-li">
         <a href="{{ route('blogs.show', $blog->id) }}">
             <div class="blog-card-img"><img src="{{Storage::url($blog->image)}}" class="blog-card-img"></div>
             <div class="blog-card-title"><?php echo $blog->title; ?></div>
