@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\User;
 
 class DashboardAdminController extends Controller
 {
@@ -15,7 +16,10 @@ class DashboardAdminController extends Controller
     public function index()
     {
         //
-        return view('admins.index', ['blogItemsFromDatabase' => Blog::orderBy('date', 'desc')->get()]);
+        return view('admins.index', [
+            'blogItemsFromDatabase' => Blog::orderBy('date', 'desc')->get(),
+            'usersFromDatabase' => User::orderBy('name', 'desc')->get(),
+        ]);
     }
 
     /**
