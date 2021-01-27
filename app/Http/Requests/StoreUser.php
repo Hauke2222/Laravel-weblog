@@ -13,7 +13,7 @@ class StoreUser extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,8 +25,8 @@ class StoreUser extends FormRequest
     {
         return [
             //
-            'id' => ['required'],
-            'subscription_status' => ['required'],
+            'name' => ['required', 'min:2', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
         ];
     }
 }

@@ -60,9 +60,9 @@ class DashboardAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $admin)
     {
-        //
+        return view('admins.edit', ['user' => $admin]);
     }
 
     /**

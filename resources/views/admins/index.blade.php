@@ -43,7 +43,7 @@
         <td><?php echo $user->name; ?></td>
         <td><?php echo $user->email; ?></td>
         <td><?php echo $user->subscription_status; ?></td>
-        <td><a href="{{ route('users.update', $user->id) }}"><button><span style='font-size:25px;'>&#9998;</span></button></a></td>
+        <td><a href="{{ route('admins.edit', ['admin' => $user->id]) }}"><span style='font-size:25px;'>&#9998;</span></a></td>
         <td>
             <form method="post" action="{{ route('users.destroy', $user->id) }}">
                 @method('DELETE')

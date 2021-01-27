@@ -72,7 +72,11 @@ class UserController extends Controller
     {
         //
         $validated = $request->validated();
+        $validated['subscription_status'] = $request->has('subscription_status');
+        //dd($validated);
         $user->update($validated);
+        return redirect()->route('admins.index');
+
     }
 
     /**
@@ -84,7 +88,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
-        $blog->delete();
+        $user->delete();
         return redirect()->route('admins.index');
     }
 }

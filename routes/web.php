@@ -24,7 +24,7 @@ Route::redirect('/', '/blogs');
 
 Route::resource('blogs', BlogItemController::class);
 
-Route::resource('users', BlogItemController::class);
+Route::resource('users', UserController::class)->middleware('auth');
 
 Route::resource('writers', DashboardWriterController::class)->middleware('auth');
 
