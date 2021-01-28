@@ -24,7 +24,7 @@ class BlogFactory extends Factory
     {
         return [
             //
-            'title' => 'Blog title A',
+            'title' => 'Blog title',
             'date' => '2020-08-04',
             'author' => Str::random(5),
             'page_content' => Str::random(75),
