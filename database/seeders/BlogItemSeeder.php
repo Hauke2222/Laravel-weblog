@@ -15,6 +15,6 @@ class BlogItemSeeder extends Seeder
      */
     public function run()
     {
-        Blog::factory()->count(1)->create();
+        Blog::factory()->count(3)->create();
     }
 }

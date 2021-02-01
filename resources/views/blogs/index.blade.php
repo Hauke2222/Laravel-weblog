@@ -17,7 +17,7 @@
         <a href="{{ route('blogs.show', $blog->id) }}">
             <div class="blog-card-img"><img src="{{Storage::url($blog->image)}}" class="blog-card-img"></div>
             <div class="blog-card-title"><?php echo $blog->title; ?></div>
-            <div class="blog-card-author-date"><?php echo $blog->author . ' ' . $blog->date ; ?></div>
+            <div class="blog-card-author-date"><?php echo $blog->author . ', ' . $blog->date ; ?></div>
             <div class="blog-card-category">Categorie:<?php foreach( $blog->categories as $category){echo ' ' . $category->name . ', ';} ?></div>
         </a>
         </li>
