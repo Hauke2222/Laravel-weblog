@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Http\File;
+use Illuminate\Support\Facades\Hash;
 
 class BlogFactory extends Factory
 {
@@ -25,8 +26,11 @@ class BlogFactory extends Factory
      */
     public function definition()
     {
-        $contents = file_get_contents('https://images.pexels.com/photos/2331569/pexels-photo-2331569.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-        Storage::put('public/images/file.jpg', $contents);
+        $contents = file_get_contents('https://source.unsplash.com/1600x900/?nature,forrest');
+        $randomNumber = time();
+        $path = 'public/images/file_'.$randomNumber.'.jpg';
+        Storage::put($path, $contents);
+        sleep(1);
 
         return [
             //
@@ -36,7 +40,7 @@ class BlogFactory extends Factory
             'page_content' => Str::random(75),
             'premium_content_status' => false,
             'user_id' => \App\Models\User::all()->random()->id,
-            'image' => 'public/images/file.jpg',
+            'image' => $path,
 
         ];
     }

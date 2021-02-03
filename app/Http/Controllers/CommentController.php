@@ -39,9 +39,6 @@ class CommentController extends Controller
     {
         //
         $validated = $request->validated();
-        //dd($blog);
-        //dd($validated);
-        //$blog->update($validated);
         Comment::create($validated);
         return redirect()->route('blogs.index');
     }

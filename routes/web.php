@@ -34,18 +34,6 @@ Route::resource('comment', CommentController::class)->middleware('auth');
 
 Route::resource('payments', PaymentController::class)->middleware('auth');
 
-Route::get('/email', function(){
-    return new WeeklyBlogDigest();
-});
-
-Route::get('/send-mail', function () {
-
-    Mail::to('newuser@example.com')->send(new WeeklyBlogDigest());
-
-    return 'A message has been sent to Mailtrap';
-
-});
-
 Auth::routes();
 
 Route::resource('blogs', BlogItemController::class)->only([
@@ -56,4 +44,3 @@ Route::resource('blogs', BlogItemController::class)->only([
     'store', 'update',
     ])->middleware('throttle:store_blog');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

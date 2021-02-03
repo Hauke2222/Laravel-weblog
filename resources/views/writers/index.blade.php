@@ -1,7 +1,6 @@
 @extends ('layouts.app')
 
 @section ('body')
-<input style="width:70%" type="text" id="myInput" onkeyup="searchInRows()" placeholder="Zoek op titel, datum, auteur, of categorie..">
     <br><br>
 <table id="myTable" style="width:70%">
     <tr>
