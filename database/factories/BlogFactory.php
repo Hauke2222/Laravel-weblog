@@ -26,11 +26,10 @@ class BlogFactory extends Factory
      */
     public function definition()
     {
-        $contents = file_get_contents('https://source.unsplash.com/1600x900/?nature,forrest');
+        $contents = file_get_contents('https://source.unsplash.com/1600x900/?nature,forrest?'.rand(0,999));
         $randomNumber = time();
         $path = 'public/images/file_'.$randomNumber.'.jpg';
         Storage::put($path, $contents);
-        sleep(1);
 
         return [
             //
