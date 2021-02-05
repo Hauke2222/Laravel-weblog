@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Comment;
+use Auth;
 
 class BlogItemController extends Controller
 {
@@ -18,7 +19,15 @@ class BlogItemController extends Controller
     public function index()
     {
         //
-        return view('blogs.index', ['blogItemsFromDatabase' => Blog::orderBy('date', 'desc')->get()]);
+        //return view('blogs.index', ['blogItemsFromDatabase' => Blog::orderBy('date', 'desc')->get()]);
+
+        if (Auth::user() && Auth::user()->subscription_status) {
+            return view('blogs.index', ['blogItemsFromDatabase' => Blog::orderBy('date', 'desc')->get()]);
+        } else {
+            return view('blogs.index', ['blogItemsFromDatabase' => Blog::orderBy('date', 'desc')
+            ->where('premium_content_status', '0')
+            ->get()]);
+        }
 
     }
 
@@ -44,7 +53,9 @@ class BlogItemController extends Controller
         //
         $validated = $request->validated();
         $validated['premium_content_status'] = $request->has('premium_content_status');
-        $validated['image'] = $request->file('image')->store('public/images');
+        if ($validated['image'] = $request->has('image')){
+            $validated['image'] = $request->file('image')->store('public/images');
+        }
         Blog::create($validated)->categories()->sync($request->categories);
 
         return redirect()->route('blogs.index');
@@ -86,7 +97,9 @@ class BlogItemController extends Controller
         //
         $validated = $request->validated();
         $validated['premium_content_status'] = $request->has('premium_content_status');
-        $validated['image'] = $request->file('image')->store('public/images');
+        if ($validated['image'] = $request->has('image')){
+            $validated['image'] = $request->file('image')->store('public/images');
+        }
         $blog->update($validated);
         $blog->categories()->sync($request->categories);
 
@@ -103,6 +116,6 @@ class BlogItemController extends Controller
     {
         //
         $blog->delete();
-        return redirect()->route('admins.index');
+        return redirect()->route('blogs.index');
     }
 }

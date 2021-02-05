@@ -44,3 +44,4 @@ Route::resource('blogs', BlogItemController::class)->only([
     'store', 'update',
     ])->middleware('throttle:store_blog');
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

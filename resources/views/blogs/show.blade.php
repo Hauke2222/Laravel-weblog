@@ -12,10 +12,6 @@
     </div>
 @endif
 
-@if ($blog->premium_content_status)
-
-    @if  (!Auth::guest() && Auth::user()->subscription_status)
-
     <h1>{{ $blog->title }}</h1>
     <h2>{{ $blog->date }}</h2>
     <h4>Author: {{ $blog->author }}</h4>
@@ -38,11 +34,6 @@
 
     </form>
 
-    @else Login en/of neem een abbonement om dit blog bericht te lezen.
-
-    @endif
-
-@endif
 
 
 @endsection ('body')
