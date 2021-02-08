@@ -5,16 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     public $timestamps = false;
     use HasFactory;
-
-    public function roles()
-    {
-        return $this->belongsToMany('App\Models\Role', 'user_roles', 'user_id', 'role_id');
-    }
+    use HasRoles;
 
     protected $table = 'users';
     protected $fillable = [

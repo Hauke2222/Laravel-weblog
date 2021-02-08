@@ -34,29 +34,14 @@ class CreateDatabase extends Migration
 
         });
 
-        Schema::create('roles', function (Blueprint $table) {
-            $table->string('name');
-            $table->bigIncrements('id');
-        });
-
         Schema::create('categories', function (Blueprint $table) {
             $table->string('name');
             $table->bigIncrements('id');
         });
 
-        Schema::create('user_roles', function (Blueprint $table) {
-            $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('role_id')->unsigned();
-
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('role_id')->references('id')->on('roles');
-
-        });
-
         Schema::create('blog_items_categories', function (Blueprint $table) {
             $table->bigInteger('blog_item_id')->unsigned();
             $table->bigInteger('category_id')->unsigned();
-
 
         });
 
@@ -77,9 +62,7 @@ class CreateDatabase extends Migration
     {
         Schema::dropIfExists('users');
         Schema::dropIfExists('blog_items');
-        Schema::dropIfExists('roles');
         Schema::dropIfExists('categories');
-        Schema::dropIfExists('user_roles');
         Schema::dropIfExists('blog_items_categories');
         Schema::dropIfExists('comments');
         Schema::dropIfExists('blog_items_comments');
