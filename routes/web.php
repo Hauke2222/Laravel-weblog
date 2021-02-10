@@ -26,9 +26,9 @@ Route::resource('blogs', BlogItemController::class);
 
 Route::resource('users', UserController::class)->middleware('auth');
 
-Route::resource('writers', DashboardWriterController::class)->middleware('auth');
+Route::resource('writers', DashboardWriterController::class)->middleware('role:writer');
 
-Route::resource('admins', DashboardAdminController::class)->middleware('auth');
+Route::resource('admins', DashboardAdminController::class)->middleware('role:admin');
 
 Route::resource('comment', CommentController::class)->middleware('auth');
 
@@ -38,7 +38,7 @@ Auth::routes();
 
 Route::resource('blogs', BlogItemController::class)->only([
     'create', 'store', 'update', 'destroy'
-    ])->middleware('auth');
+    ])->middleware('role:writer');
 
 Route::resource('blogs', BlogItemController::class)->only([
     'store', 'update',
