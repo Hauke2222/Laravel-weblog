@@ -44,5 +44,7 @@ class RolesSeeder extends Seeder
         'password' => Hash::make('password'),
     ]);
     $admin->assignRole('admin');
+    $admin->assignRole('writer');
+
     }
 }

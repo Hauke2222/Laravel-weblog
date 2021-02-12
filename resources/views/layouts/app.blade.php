@@ -12,12 +12,19 @@
         <ul>
             <li><a href="/blogs">Blog Lijst</a></li>
             @auth
-            <li><a href="{{ route('blogs.create') }}">Blog Schrijfen</a></li>
-            <li><a href="{{ route('admins.index') }}">Admin Overzicht</a></li>
-            <li><a href="{{ route('writers.index') }}">Schrijvers Overzicht</a></li>
-            @endauth
-            <li><a href="{{ route('payments.index') }}">Abonnement</a></li>
 
+            @hasanyrole('writer|admin')
+            <li><a href="{{ route('blogs.create') }}">Blog Schrijfen</a></li>
+            <li><a href="{{ route('writers.index') }}">Schrijvers Overzicht</a></li>
+            @endhasanyrole('writer|admin')
+
+            @hasrole('admin')
+            <li><a href="{{ route('admins.index') }}">Admin Overzicht</a></li>
+            @endhasrole('admin')
+
+            @endauth
+
+            <li><a href="{{ route('payments.index') }}">Abonnement</a></li>
 
             @guest
             @if (Route::has('login'))
