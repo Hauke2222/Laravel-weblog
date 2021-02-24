@@ -2,16 +2,6 @@
 
 @section ('body')
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
     <h1>{{ $blog->title }}</h1>
     <h2>{{ $blog->date }}</h2>
     <h4>Author: {{ $blog->author }}</h4>

@@ -13,26 +13,21 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        // TODO: zet alle names in 1 array en loop hier doorheen met een create functie
+         function createCategories() {
+            $categories = array(
+                'Natuur',
+                'Sport',
+                'Economie',
+                'Nieuws',
+                'Technologie',
+                'Cultuur'
+             );
 
-        Category::create([
-           'name' => 'Natuur'
-        ]);
-        Category::create([
-            'name' => 'Sport'
-         ]);
-        Category::create([
-            'name' => 'Economie'
-         ]);
-        Category::create([
-            'name' => 'Nieuws'
-         ]);
-        Category::create([
-            'name' => 'Technologie'
-         ]);
-        Category::create([
-            'name' => 'Cultuur'
-         ]);
+             foreach($categories as $category) {
+                Category::create(['name' => $category]);
+             }
+         }
+         createCategories();
 
     }
 }

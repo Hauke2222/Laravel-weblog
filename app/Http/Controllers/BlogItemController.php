@@ -18,10 +18,6 @@ class BlogItemController extends Controller
      */
     public function index()
     {
-        // TODO: remove unused comments
-        //
-        //return view('blogs.index', ['blogItemsFromDatabase' => Blog::orderBy('date', 'desc')->get()]);
-
         if (Auth::user() && Auth::user()->subscription_status) {
             return view('blogs.index', ['blogItemsFromDatabase' => Blog::orderBy('date', 'desc')->get()]);
         } else {
@@ -29,7 +25,6 @@ class BlogItemController extends Controller
             ->where('premium_content_status', '0')
             ->get()]);
         }
-
     }
 
     /**
@@ -54,9 +49,7 @@ class BlogItemController extends Controller
         //
         $validated = $request->validated();
         $validated['premium_content_status'] = $request->has('premium_content_status');
-
-        // TODO: == gebruiken ipv = (?)
-        if ($validated['image'] = $request->has('image')){
+        if ($request->has('image')){
             $validated['image'] = $request->file('image')->store('public/images');
         }
         Blog::create($validated)->categories()->sync($request->categories);
@@ -84,8 +77,12 @@ class BlogItemController extends Controller
      */
     public function edit(Blog $blog)
     {
-        // TODO: zet voor betere leesbaarheid het fetchen van je template variablen deze op aparte regels
-        return view('blogs.edit', ['blog' => $blog, 'blogCategoriesFromDatabase' => Category::all(), 'selectedCategories' => $blog->categories]);
+        return view('blogs.edit',
+        [
+            'blog' => $blog,
+            'blogCategoriesFromDatabase' => Category::all(),
+            'selectedCategories' => $blog->categories,
+        ]);
     }
 
     /**
@@ -100,7 +97,7 @@ class BlogItemController extends Controller
         //
         $validated = $request->validated();
         $validated['premium_content_status'] = $request->has('premium_content_status');
-        if ($validated['image'] = $request->has('image')){
+        if ($request->has('image')){
             $validated['image'] = $request->file('image')->store('public/images');
         }
         $blog->update($validated);

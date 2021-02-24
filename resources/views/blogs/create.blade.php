@@ -2,17 +2,6 @@
 
 @section ('create')
 
-@if ($errors->any())
-    {{-- TODO: onderstaande error code komt meerdere keren in je code voor, je kunt dit daarom evt. in een partial zetten en includen --}}
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
 <form action="{{ route('blogs.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <label for="date">Datum:</label>
