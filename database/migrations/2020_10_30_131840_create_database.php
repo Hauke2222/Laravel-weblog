@@ -13,6 +13,7 @@ class CreateDatabase extends Migration
      */
     public function up()
     {
+        // TODO: splits tables op in aparte migrations
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');

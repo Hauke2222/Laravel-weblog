@@ -13,7 +13,8 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        // TODO: zet alle names in 1 array en loop hier doorheen met een create functie
+
         Category::create([
            'name' => 'Natuur'
         ]);

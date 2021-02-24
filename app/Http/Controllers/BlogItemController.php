@@ -18,6 +18,7 @@ class BlogItemController extends Controller
      */
     public function index()
     {
+        // TODO: remove unused comments
         //
         //return view('blogs.index', ['blogItemsFromDatabase' => Blog::orderBy('date', 'desc')->get()]);
 
@@ -53,6 +54,8 @@ class BlogItemController extends Controller
         //
         $validated = $request->validated();
         $validated['premium_content_status'] = $request->has('premium_content_status');
+
+        // TODO: == gebruiken ipv = (?)
         if ($validated['image'] = $request->has('image')){
             $validated['image'] = $request->file('image')->store('public/images');
         }
@@ -81,7 +84,7 @@ class BlogItemController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        // TODO: zet voor betere leesbaarheid het fetchen van je template variablen deze op aparte regels
         return view('blogs.edit', ['blog' => $blog, 'blogCategoriesFromDatabase' => Category::all(), 'selectedCategories' => $blog->categories]);
     }
 

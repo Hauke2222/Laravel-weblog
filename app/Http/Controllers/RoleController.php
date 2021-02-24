@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
+// TODO: mocht je besluiten geen role controller nodig te hebben, dan kan deze verwijderd worden
 class RoleController extends Controller
 {
     /**

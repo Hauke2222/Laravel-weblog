@@ -17,7 +17,7 @@ class DashboardWriterController extends Controller
     {
         //
         $user = Auth::user();
-        $user = $user->name;
+        $user = $user->name; // TODO: zoek auteur op basis van id, omdat auteursnaam niet per se uniek is
         return view('writers.index', ['blogItemsFromDatabase' => Blog::where('author', $user)->orderBy('date', 'desc')->get()]);
     }
 

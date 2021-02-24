@@ -3,6 +3,7 @@
 @section ('create')
 
 @if ($errors->any())
+    {{-- TODO: onderstaande error code komt meerdere keren in je code voor, je kunt dit daarom evt. in een partial zetten en includen --}}
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
