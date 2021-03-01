@@ -30,6 +30,7 @@ class StoreBlogPost extends FormRequest
             'author' => ['required'],
             'page_content' => ['required'],
             'image' => ['mimes:jpeg,bmp,png|max:2000'],
+            'user_id' => ['required'],
 
         ];
     }

@@ -30,5 +30,6 @@ class Blog extends Model
         'page_content',
         'premium_content_status',
         'image',
+        'user_id',
     ];
 }

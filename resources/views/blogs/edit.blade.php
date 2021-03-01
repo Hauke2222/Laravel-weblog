@@ -7,6 +7,7 @@
     @csrf
     @method('PUT')
         <br>
+        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
         <label for="date">Datum:</label>
         <input type="date" id="date" name="date" value="{{ $blog->date }}">
 

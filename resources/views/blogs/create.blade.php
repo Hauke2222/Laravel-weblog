@@ -4,6 +4,8 @@
 
 <form action="{{ route('blogs.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
+    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+
     <label for="date">Datum:</label>
     <input id="date" type="date" name="date">
 
@@ -11,7 +13,7 @@
     <input id="title" type="text" name="title">
 
     <label for="author">Auteur:</label>
-    <input id="author" type="text" name="author">
+    <input id="author" type="text" name="author" value="{{ Auth::user()->name }}">
 
     <label for="premium_content_status">Premium</label>
     <input type="checkbox" name="premium_content_status">
