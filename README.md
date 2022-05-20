@@ -1,10 +1,9 @@
+```
 Project setup:
-
 
 composer install
 
 mysql -u root
-
 run: create database database_name;
 
 cp .env.example .env
@@ -19,3 +18,4 @@ php artisan migrate:fresh --seed
 Run project:
 
 php artisan serve
+```
